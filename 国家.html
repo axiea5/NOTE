@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function testSplice() {
+//选中的国家
+        var sel=["中国","美国","俄罗斯","日本"];
+        //备选国家
+        var unsel=["朝鲜","越南","老挝","柬埔寨"];
+        console.log("选中的国家："+sel);
+        console.log("备选国家："+unsel);
+        //通过弹框，录入一个国家名称，保存进input
+        var input=prompt("请输入一个国家:");
+        //判断在unsel中，是否包含input，如果包含获取下标，继续操作，否则，提示国家不存在并结束
+        var index=-1;
+        for (var i=0;i<unsel.length;i++){
+            if (unsel[i]=input){
+                index=i;
+                break;
+            }
+        }
+        //从unsel中将input删除，并将input再放入到sel中
+        if (index!=-1){
+            unsel.splice(index,1);
+            sel[sel.length]=input;
+            console.log("选中的国家："+sel);
+            console.log("备选国家："+unsel);
+        }else{
+            console.log("您输入的国家不存在");
+        }
+    }
+</script>
+<button onclick="testSplice()">添加国家</button>
+</body>
+</html>
